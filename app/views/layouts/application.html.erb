@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>BloggedApp</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,9 +11,7 @@
 </head>
 
 <body>
-<% flash.each do |name, msg| %>
-  <%= msg %>
-<% end %>
+<%= render 'layouts/messages' %>
 <%= yield %>
 </body>
 </html>
