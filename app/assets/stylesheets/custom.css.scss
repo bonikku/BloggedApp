@@ -1,0 +1,40 @@
+@import "bootstrap/dist/css/bootstrap";
+@import "extra-colours";
+
+html, body {
+  height: 100%;
+}
+
+.navbar {
+  background-color: limegreen !important;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+#logo {
+  color: #fcfcfc !important;
+  float: left;
+  font-size: 1.5em;
+  letter-spacing: -1px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+#home-container {
+  background-image: asset-url('image3.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #2e2b2d !important;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: white;
+}
+
+#sticky-footer {
+  flex-shrink: unset;
+}
