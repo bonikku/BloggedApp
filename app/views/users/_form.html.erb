@@ -28,7 +28,7 @@
         </div>
 
         <div class="form-group row justify-content-center">
-          <%= form.submit "Sign up", class: "btn btn-light btn-lg" %>
+          <%= form.submit(@user.new_record? ? "Sign up" : "Edit account", class: "btn btn-light btn-lg") %>
         </div>
       <% end %>
       <div class="text-center justify-content-center mb-2">
