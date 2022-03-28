@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @articles = @user.articles # Instead of adding obj in render
   end
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
