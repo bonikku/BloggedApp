@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 5)
+
   end
 
   def new
@@ -13,7 +14,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(permit_params)
+    @article = Article.new(article_params)
     @article.user = User.first
     if @article.save
       flash[:notice] = "The article has been created"
@@ -27,7 +28,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    if @article.update(permit_params)
+    if @article.update(article_params)
       flash[:notice] = 'Article has been updated'
       redirect_to @article
     else
@@ -46,7 +47,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  def permit_params
+  # Whitelist params
+  def article_params
     params.require(:article).permit(:title, :description)
   end
 
