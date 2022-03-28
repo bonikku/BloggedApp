@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def show
+    @user = User.find(params[:id])
+    @articles = @user.articles # Instead of adding obj in render
+  end
+
   def new
     @user = User.new
   end
