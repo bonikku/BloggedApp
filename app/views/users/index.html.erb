@@ -1,7 +1,7 @@
 <h1 class="text-center mt-4">Users</h1>
 
 <div class="d-flex justify-content-center mb-5">
-  <%= will_paginate @articles %>
+  <%= will_paginate @users %>
 </div>
 
 <div class="container">
@@ -18,8 +18,13 @@
               <%= link_to gravatar_for(user, size: 140), user %></h5>
             <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
             <%= link_to 'View profile', user, class: "btn btn-info" %>
-            <% if logged_in? && user == current_user %>
-              <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-warning" %>
+            <% if logged_in? %>
+              <% if user == current_user || current_user.admin? %>
+                <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-warning" %>
+              <% end %>
+              <% if current_user.admin? %>
+                <%= link_to 'Delete', user_path(user), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete this user?" } %>
+              <% end %>
             <% end %>
           </div>
           <div class="card-footer text-muted">
@@ -34,5 +39,5 @@
 </div>
 
 <div class="d-flex justify-content-center mb-3">
-  <%= will_paginate @articles %>
+  <%= will_paginate @users %>
 </div>
