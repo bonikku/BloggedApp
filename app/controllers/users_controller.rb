@@ -3,14 +3,6 @@ class UsersController < ApplicationController
   before_action :require_user, only: %i[edit update]
   before_action :require_same_user, only: %i[edit update destroy]
 
-  def show
-    @articles = @user.articles.paginate(page: params[:page], per_page: 5) # Instead of adding obj in render
-  end
-
-  def index
-    @users = User.paginate(page: params[:page], per_page: 5)
-  end
-
   def new
     @user = User.new
   end
@@ -24,6 +16,14 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @articles = @user.articles.paginate(page: params[:page], per_page: 5) # Instead of adding obj in render
+  end
+
+  def index
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def edit; end
