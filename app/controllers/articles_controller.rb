@@ -25,6 +25,15 @@ class ArticlesController < ApplicationController
 
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to articles_path
+    else
+      @parameter = params[:search].downcase
+      @articles = Article.all.where("lower(title) LIKE :search OR lower(description) LIKE :search", search: "%#{@parameter}")
+    end
+  end
+
   def edit; end
 
   def update
