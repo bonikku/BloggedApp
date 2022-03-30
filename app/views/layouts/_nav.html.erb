@@ -22,7 +22,10 @@
           <% end %>
           <%= link_to "View articles", articles_path, class: "dropdown-item" %>
           <div class="dropdown-divider"></div>
-          <%= link_to "Coming soon", '#', class: "dropdown-item" %>
+          <%= link_to "View categories", categories_path, class: "dropdown-item" %>
+          <% if logged_in? && current_user.admin? %>
+            <%= link_to "Create categories", new_category_path, class: "dropdown-item" %>
+          <% end %>
         </div>
       </li>
       <% if logged_in? %>
