@@ -5,6 +5,9 @@
     <div class="col-10">
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-header font-italic">
+          <% if @article.categories.any? %>
+            <%= render @article.categories %>
+          <% end %>
           <%= link_to gravatar_for(@article.user, size: 40), user_path(@article.user) %>
           <%= @article.user.username if @article.user %>
         </div>
