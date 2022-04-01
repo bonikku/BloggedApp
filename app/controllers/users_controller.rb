@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 5)
+    @users = User.reorder("created_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
   def edit; end
