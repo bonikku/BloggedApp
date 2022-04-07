@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
       redirect_to articles_path
     else
       @parameter = params[:search].downcase
-      @articles = Article.all.where("lower(title) LIKE :search OR lower(description) LIKE :search", search: "%#{@parameter}")
+      @articles = Article.all.where("lower(title) LIKE :search OR lower(description) LIKE :search", search: "%#{@parameter}%")
     end
   end
 
