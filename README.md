@@ -1,24 +1,44 @@
-# README
+# BloggedApp
+New version of my first blogging app built on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Demo
+Link: https://blogged-app-nik.herokuapp.com/
 
-Things you may want to cover:
+ ## Table of Contents
+* [Running the app](#how-to-run)
+* [About app](#about-app)
+* [What I have learnt](#what-i-have-learnt)
+* [Inspiration](#inspiration)
 
-* Ruby version
+## Install
+### Requirements
+-**Rails 6**
+-**PostgreSQL**
 
-* System dependencies
+### How to run
 
-* Configuration
+Download the repo with git:
+```
+git clone https://github.com/bonikku/BloggedApp
+```
+The run yarn to install dependencies
+```
+yarn install
+```
+Next you need to create database and migrate migrations
+```
+rails db:create:migrate
+```
+Finally you can launch the app
+```
+rails s
+```
 
-* Database creation
+### About app
+New version of my first ever made app on Rails with few additional features and better code.
 
-* Database initialization
+### What I have learnt
+Basics of rails, how sessions works, MVC architecture, many to many associations, unit tests, extra gems like will_paginate and ofc CRUD operations.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Inspiration
+The project was inspired by "The Complete Ruby on Rails Developer Course" available on udemy.
