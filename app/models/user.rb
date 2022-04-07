@@ -11,5 +11,11 @@ class User < ApplicationRecord
             presence: true,
             length: { maximum: 100 },
             format: { with: VALID_EMAIL_REGEX }
+
   has_secure_password
+  # At least 6 characters long and max 50
+  PASSWORD_REQUIREMENTS = /\A
+  (?=.{6,70})
+  /x
+  validates :password_digest, format: PASSWORD_REQUIREMENTS
 end
